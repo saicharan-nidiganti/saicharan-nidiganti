@@ -57,7 +57,7 @@ A real-time multimodal AI system exploring streaming voice, vision, model intera
 `Docker` `CI/CD` `Linux` `Ollama` `Observability` `Performance Benchmarking`
 
 ### Engineering Practices
-`Test-Driven Development` `Evaluation-First Development` `Reproducibility` `Regression Testing` `Security`
+`Automated Testing` `Evaluation-First Development` `Reproducibility` `Regression Testing` `Security`
 
 ---
 
