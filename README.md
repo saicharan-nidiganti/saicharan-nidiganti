@@ -1,11 +1,11 @@
 # SaiCharan Nidiganti
 
-**Software Engineer · Backend & AI Systems**
+**Full-Stack Software Engineer · AI Systems** · Hyderabad, India
 
-I build backend services and LLM systems the way production software should be built:
-typed, tested, measured in CI, and documented well enough that someone else can run them.
-My recent work is in retrieval-augmented generation, LLM evaluation, and secure self-hosted
-platforms, mostly in Python with TypeScript and Swift on the client side.
+I build web applications, backend services, and LLM systems the way production software
+should be built: typed, covered by automated tests, measured in CI, and documented well
+enough that someone else can run them. My recent work is in retrieval-augmented generation,
+LLM evaluation, and secure self-hosted platforms, across Python, TypeScript, and Swift.
 
 ---
 
@@ -55,13 +55,15 @@ total latency, and throughput, logged as JSONL so runs can be compared under fix
 
 ## Technical skills
 
-| Area | Tools |
+| Area | Skills |
 | --- | --- |
-| Languages | Python, TypeScript, Swift, SQL |
-| Backend | FastAPI, Pydantic, REST API design, SQLite, Alembic |
+| Languages | Python, TypeScript, JavaScript, Swift, SQL |
+| Full-stack development | FastAPI, Pydantic, REST API design, React, Vite, SwiftUI |
+| Databases | MongoDB, MongoDB Compass, SQLite, Alembic migrations |
 | AI / LLM | RAG, hybrid search, embeddings, reranking, LLM evaluation, Claude API, Ollama |
-| Frontend and mobile | React, Vite, SwiftUI |
-| Quality and delivery | pytest, mypy, Ruff, GitHub Actions, gitleaks, pip-audit, Dependabot |
+| Testing | Test automation, performance testing and benchmarking, pytest, Vitest, React Testing Library, CI coverage gates |
+| DevOps and infrastructure | Kubernetes, GitHub Actions, Dependabot |
+| Code quality and security | mypy, Ruff, ESLint, gitleaks, pip-audit |
 
 ---
 
