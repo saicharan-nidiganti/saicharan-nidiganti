@@ -1,101 +1,83 @@
-# Hi, I'm SaiCharan Nidiganti 👋
+# SaiCharan Nidiganti
 
-### AI & Software Engineer
+**Software Engineer · Backend & AI Systems**
 
-I build production-oriented AI systems, developer tools, and full-stack applications.
-
-My current focus is on **LLM engineering, RAG systems, AI evaluation, local inference, observability, and production software engineering**.
-
----
-
-## 🚀 Featured Engineering Projects
-
-### 🔎 Production RAG
-A production-oriented Retrieval-Augmented Generation system focused on reliable retrieval, grounded generation, citations, evaluation, regression testing, and production readiness.
-
-**Focus:** RAG • Retrieval • Reranking • Citations • Evaluation • Observability • Production Engineering
+I build backend services and LLM systems the way production software should be built:
+typed, tested, measured in CI, and documented well enough that someone else can run them.
+My recent work is in retrieval-augmented generation, LLM evaluation, and secure self-hosted
+platforms, mostly in Python with TypeScript and Swift on the client side.
 
 ---
 
-### ⚡ Local AI Benchmark
-A reproducible offline AI engineering lab for benchmarking local LLM inference, latency, throughput, structured-output reliability, and controlled model evaluation.
+## Featured work
 
-**Focus:** Local LLMs • Ollama • Benchmarking • Performance • Evaluation • Reproducibility
+### [Production RAG](https://github.com/saicharan-nidiganti/production-rag)
 
----
+A self-hosted question-answering backend that answers from your documents, cites the exact
+passages it used, and abstains when the documents don't contain the answer.
 
-### 📊 LLM Observability Platform
-A platform for tracing, monitoring, evaluating, and detecting regressions across LLM-powered applications.
+- **Retrieval:** hybrid BM25 + vector search merged with Reciprocal Rank Fusion, then
+  cross-encoder reranking. On the held-out split of its 94-question evaluation set: hit
+  rate 1.00, MRR 0.946, p95 retrieval latency 75 ms.
+- **Quality gates:** retrieval quality is a CI gate, so a regression fails the build. 227
+  tests with a 90% coverage floor, `mypy --strict`, and Ruff, run on Python 3.12, 3.13, and 3.14.
+- **Security:** document text is passed to the model as data, never as instructions; uploads
+  are parsed in isolated processes; gitleaks and pip-audit run on every push.
+- **Design:** 8 architecture decision records, background ingestion with crash recovery,
+  and a tagged [v0.1.0 release](https://github.com/saicharan-nidiganti/production-rag/releases/tag/v0.1.0).
 
-**Focus:** LLM Observability • Tracing • Metrics • Evaluation • Regression Detection
+`Python` `FastAPI` `SQLite FTS5` `Alembic` `fastembed` `Claude API` `uv` `GitHub Actions`
 
----
+### [NetSentinel](https://github.com/saicharan-nidiganti/NetSentinel)
 
-### 🧠 LoRA / DPO Fine-Tuning Lab
-An experimental environment for fine-tuning and preference optimization of language models with reproducible datasets, experiments, and evaluation.
+A self-hosted home network platform: a Windows collector agent discovers devices on the
+network, and a web dashboard lets the owner see, label, and manage them.
 
-**Focus:** Fine-Tuning • LoRA • DPO • Model Evaluation • Experiment Tracking
+- **Security:** server-side sessions with CSRF protection, escalating delays after failed
+  sign-ins, single-use enrolment tokens and revocable credentials for agents, and an audit
+  log of security events.
+- **Engineering:** 580+ tests across the API and collector, plus frontend tests; numbered
+  database migrations; dependency licence checks; CI that runs the collector's credential
+  tests on Windows.
+- **Frontend:** React and TypeScript dashboard with light and dark themes, fully usable
+  from the keyboard.
 
----
+`Python` `FastAPI` `Pydantic` `React 19` `TypeScript` `Vite` `SQLite` `WebSockets`
 
-### 🎙️ Real-Time Multimodal AI
-A real-time multimodal AI system exploring streaming voice, vision, model interaction, and low-latency inference.
+### [Local AI Benchmark](https://github.com/saicharan-nidiganti/local-ai-benchmark)
 
-**Focus:** Multimodal AI • Voice • Streaming • Latency • Real-Time Systems
+A reproducible lab for measuring local LLM inference through Ollama: time to first token,
+total latency, and throughput, logged as JSONL so runs can be compared under fixed settings.
 
----
-
-## 🧰 Engineering Stack
-
-### AI / ML
-`Python` `LLMs` `RAG` `Embeddings` `Vector Search` `LoRA` `DPO` `Evaluation` `Local Inference`
-
-### Software Engineering
-`Python` `Swift` `SwiftUI` `TypeScript` `REST APIs` `Git` `GitHub`
-
-### Infrastructure
-`Docker` `CI/CD` `Linux` `Ollama` `Observability` `Performance Benchmarking`
-
-### Engineering Practices
-`Automated Testing` `Evaluation-First Development` `Reproducibility` `Regression Testing` `Security`
-
----
-
-## 🔬 What I'm Interested In
-
-- Building reliable LLM applications
-- Retrieval and search systems
-- AI evaluation and benchmarking
-- Local and efficient AI inference
-- LLM observability
-- Model fine-tuning and preference optimization
-- Real-time multimodal systems
-- Production software engineering
+`Python` `Ollama` `Local LLMs` `Benchmarking`
 
 ---
 
-## 📈 Engineering Principles
+## Technical skills
 
-> **Build → Measure → Evaluate → Observe → Improve**
-
-I focus on making AI systems measurable and reproducible rather than treating model output as a black box.
-
----
-
-## 📂 Portfolio
-
-| Project | Area | Status |
-|---|---|---|
-| Production RAG | RAG / AI Engineering | 🚧 Building |
-| Local AI Benchmark | LLM Performance | 🚧 Building |
-| LLM Observability Platform | AI Infrastructure | 📋 Planned |
-| LoRA / DPO Fine-Tuning Lab | Model Optimization | 📋 Planned |
-| Real-Time Multimodal AI | Multimodal AI | 📋 Planned |
+| Area | Tools |
+| --- | --- |
+| Languages | Python, TypeScript, Swift, SQL |
+| Backend | FastAPI, Pydantic, REST API design, SQLite, Alembic |
+| AI / LLM | RAG, hybrid search, embeddings, reranking, LLM evaluation, Claude API, Ollama |
+| Frontend and mobile | React, Vite, SwiftUI |
+| Quality and delivery | pytest, mypy, Ruff, GitHub Actions, gitleaks, pip-audit, Dependabot |
 
 ---
 
-## 🤝 Let's Connect
+## How I work
 
-I'm interested in AI engineering, software engineering, developer tools, and building practical AI systems.
+- **Decisions are written down.** Significant choices get an architecture decision record
+  with the options considered and the trade-offs accepted.
+- **Quality is measured, not claimed.** Retrieval quality, type checking, and test coverage
+  are CI gates, so regressions fail the build instead of reaching users.
+- **Status is stated honestly.** My READMEs separate what is verified, what is implemented
+  but not yet measured, and what is planned.
+- **Security is part of the design**, not a final review step.
 
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/saicharan-nidiganti)
+## Currently
+
+- Preparing the first live evaluation of Claude-generated answers in Production RAG:
+  citation accuracy, declining unanswerable questions, and prompt-injection resistance.
+- Next up: multi-user isolation on PostgreSQL with pgvector.
+- Exploring: LLM observability and fine-tuning with LoRA and DPO.
