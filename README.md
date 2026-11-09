@@ -5,7 +5,7 @@
 I build web applications, backend services, and LLM systems the way production software
 should be built: typed, covered by automated tests, measured in CI, and documented well
 enough that someone else can run them. My recent work is in retrieval-augmented generation,
-LLM evaluation, and secure self-hosted platforms, across Python, TypeScript, and Swift.
+LLM evaluation, and local model benchmarking, across Python, TypeScript, and Swift.
 
 ---
 
@@ -30,24 +30,6 @@ passages it used, and abstains when the documents don't contain the answer.
   and a tagged [v0.1.0 release](https://github.com/saicharan-nidiganti/production-rag/releases/tag/v0.1.0).
 
 `Python` `FastAPI` `SQLite FTS5` `Alembic` `fastembed` `Claude API` `uv` `GitHub Actions`
-
-### [NetSentinel](https://github.com/saicharan-nidiganti/NetSentinel)
-
-[![CI](https://github.com/saicharan-nidiganti/NetSentinel/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/saicharan-nidiganti/NetSentinel/actions/workflows/ci.yml)
-
-A self-hosted home network platform: a Windows collector agent discovers devices on the
-network, and a web dashboard lets the owner see, label, and manage them.
-
-- **Security:** server-side sessions with CSRF protection, escalating delays after failed
-  sign-ins, single-use enrolment tokens and revocable credentials for agents, and an audit
-  log of security events.
-- **Engineering:** 580+ tests across the API and collector, plus frontend tests; numbered
-  database migrations; dependency licence checks; CI that runs the collector's credential
-  tests on Windows.
-- **Frontend:** React and TypeScript dashboard with light and dark themes, fully usable
-  from the keyboard.
-
-`Python` `FastAPI` `Pydantic` `React 19` `TypeScript` `Vite` `SQLite` `WebSockets`
 
 ### [Local AI Benchmark](https://github.com/saicharan-nidiganti/local-ai-benchmark)
 
