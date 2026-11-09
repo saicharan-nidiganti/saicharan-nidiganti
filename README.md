@@ -13,6 +13,9 @@ LLM evaluation, and secure self-hosted platforms, across Python, TypeScript, and
 
 ### [Production RAG](https://github.com/saicharan-nidiganti/production-rag)
 
+[![CI](https://github.com/saicharan-nidiganti/production-rag/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/saicharan-nidiganti/production-rag/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/saicharan-nidiganti/production-rag)](https://github.com/saicharan-nidiganti/production-rag/releases)
+
 A self-hosted question-answering backend that answers from your documents, cites the exact
 passages it used, and abstains when the documents don't contain the answer.
 
@@ -29,6 +32,8 @@ passages it used, and abstains when the documents don't contain the answer.
 `Python` `FastAPI` `SQLite FTS5` `Alembic` `fastembed` `Claude API` `uv` `GitHub Actions`
 
 ### [NetSentinel](https://github.com/saicharan-nidiganti/NetSentinel)
+
+[![CI](https://github.com/saicharan-nidiganti/NetSentinel/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/saicharan-nidiganti/NetSentinel/actions/workflows/ci.yml)
 
 A self-hosted home network platform: a Windows collector agent discovers devices on the
 network, and a web dashboard lets the owner see, label, and manage them.
