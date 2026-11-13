@@ -49,7 +49,8 @@ an offline app that runs the winner.
   for every run (model digest, Ollama version, power state, harness commit), with the raw
   JSONL kept so every summary can be rebuilt.
 - **Findings:** sending the JSON schema as Ollama's structured-output format took JSON
-  validity from 0% to 100% on a thinking model; every model over-escalates ticket priority.
+  validity from 0% to 100% on a thinking model; every model over-escalated ticket priority,
+  and a priority rubric with worked examples took the app's model from 8 to 14 of 15 right.
 - **Privacy, latency and cost, measured offline:** with networking off, 0 connections to
   another machine in 150 runs and the same replies byte for byte; every model meets the
   latency targets for interactive use (first token in 92 to 203 ms); GPU electricity costs
@@ -58,9 +59,9 @@ an offline app that runs the winner.
 - **The app:** paste a support ticket, get its category, priority, order number, customer and
   a summary from phi4-mini in about 3 s, as a command or a local web page that listens on
   127.0.0.1 only, keeps nothing, and works with networking off.
-- **Engineering:** 224 offline tests at 97% coverage, `mypy --strict`, 7 required CI checks on
-  Python 3.11 to 3.14 and Windows, 12 architecture decision records, and a tagged
-  [v1.0.0 release](https://github.com/saicharan-nidiganti/local-ai-benchmark/releases/tag/v1.0.0).
+- **Engineering:** 235 offline tests at 98% coverage, `mypy --strict`, 7 required CI checks on
+  Python 3.11 to 3.14 and Windows, 12 architecture decision records, and tagged releases up to
+  [v1.2.0](https://github.com/saicharan-nidiganti/local-ai-benchmark/releases/latest).
 
 `Python` `Ollama` `Small language models` `Pydantic` `LLM evaluation` `Benchmarking` `uv` `GitHub Actions`
 
