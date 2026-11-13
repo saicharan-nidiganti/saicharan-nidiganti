@@ -33,10 +33,27 @@ passages it used, and abstains when the documents don't contain the answer.
 
 ### [Local AI Benchmark](https://github.com/saicharan-nidiganti/local-ai-benchmark)
 
-A reproducible lab for measuring local LLM inference through Ollama: time to first token,
-total latency, and throughput, logged as JSONL so runs can be compared under fixed settings.
+[![CI](https://github.com/saicharan-nidiganti/local-ai-benchmark/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/saicharan-nidiganti/local-ai-benchmark/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/saicharan-nidiganti/local-ai-benchmark)](https://github.com/saicharan-nidiganti/local-ai-benchmark/releases)
 
-`Python` `Ollama` `Local LLMs` `Benchmarking`
+Which small language model should run on a laptop with a 4 GB GPU? An offline benchmark that
+answers by measurement: three models served by Ollama, scored on 45 support-ticket tasks
+(classification, JSON extraction, summaries) and timed on the same machine and settings.
+
+- **Result:** phi4-mini is the best tradeoff: quality 0.89, level with qwen3:4b-instruct, at
+  34.6 tokens/s, 14% faster and with 23% less GPU energy per task. llama3.2:3b is the fastest
+  at 53 tokens/s but writes weaker summaries (0.81 overall).
+  [Full results](https://github.com/saicharan-nidiganti/local-ai-benchmark/tree/main/results/2026-11-13-three-model-comparison).
+- **Measurement:** warm-ups excluded, a fixed seed and settings, and an environment manifest
+  for every run (model digest, Ollama version, power state, harness commit), with the raw
+  JSONL kept so every summary can be rebuilt.
+- **Findings:** sending the JSON schema as Ollama's structured-output format took JSON
+  validity from 0% to 100% on a thinking model; every model over-escalates ticket priority.
+- **Engineering:** 153 offline tests at 97% coverage, `mypy --strict`, 7 required CI checks on
+  Python 3.11 to 3.14 and Windows, 10 architecture decision records, and a tagged
+  [v0.2.0 release](https://github.com/saicharan-nidiganti/local-ai-benchmark/releases/tag/v0.2.0).
+
+`Python` `Ollama` `Small language models` `Pydantic` `LLM evaluation` `Benchmarking` `uv` `GitHub Actions`
 
 ---
 
@@ -47,7 +64,7 @@ total latency, and throughput, logged as JSONL so runs can be compared under fix
 | Languages | Python, TypeScript, JavaScript, Swift, SQL |
 | Full-stack development | FastAPI, Pydantic, REST API design, React, Vite, SwiftUI |
 | Databases | MongoDB, MongoDB Compass, SQLite, Alembic migrations |
-| AI / LLM | RAG, hybrid search, embeddings, reranking, LLM evaluation, Claude API, Ollama |
+| AI / LLM | RAG, hybrid search, embeddings, reranking, LLM evaluation, structured output, local inference with Ollama and quantized models, Claude API |
 | Testing | Test automation, performance testing and benchmarking, pytest, Vitest, React Testing Library, CI coverage gates |
 | DevOps and infrastructure | Kubernetes, GitHub Actions, Dependabot |
 | Code quality and security | mypy, Ruff, ESLint, gitleaks, pip-audit |
@@ -69,4 +86,6 @@ total latency, and throughput, logged as JSONL so runs can be compared under fix
 - Preparing the first live evaluation of Claude-generated answers in Production RAG:
   citation accuracy, declining unanswerable questions, and prompt-injection resistance.
 - Next up: multi-user isolation on PostgreSQL with pgvector.
+- Local AI Benchmark, Phase 4: proving offline operation, latency targets for interactive
+  use, and the cost per million tokens of local inference against a hosted API.
 - Exploring: LLM observability and fine-tuning with LoRA and DPO.
