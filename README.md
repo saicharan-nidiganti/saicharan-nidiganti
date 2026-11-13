@@ -49,8 +49,13 @@ answers by measurement: three models served by Ollama, scored on 45 support-tick
   JSONL kept so every summary can be rebuilt.
 - **Findings:** sending the JSON schema as Ollama's structured-output format took JSON
   validity from 0% to 100% on a thinking model; every model over-escalates ticket priority.
-- **Engineering:** 153 offline tests at 97% coverage, `mypy --strict`, 7 required CI checks on
-  Python 3.11 to 3.14 and Windows, 10 architecture decision records, and a tagged
+- **Privacy, latency and cost, measured offline:** with networking off, 0 connections to
+  another machine in 150 runs and the same replies byte for byte; every model meets the
+  latency targets for interactive use (first token in 92 to 203 ms); GPU electricity costs
+  INR 2 to 4 per million tokens against INR 19 to 31 for the same models hosted.
+  [Tradeoffs](https://github.com/saicharan-nidiganti/local-ai-benchmark#tradeoffs-privacy-latency-and-cost).
+- **Engineering:** 201 offline tests at 97% coverage, `mypy --strict`, 7 required CI checks on
+  Python 3.11 to 3.14 and Windows, 11 architecture decision records, and a tagged
   [v0.2.0 release](https://github.com/saicharan-nidiganti/local-ai-benchmark/releases/tag/v0.2.0).
 
 `Python` `Ollama` `Small language models` `Pydantic` `LLM evaluation` `Benchmarking` `uv` `GitHub Actions`
@@ -86,6 +91,6 @@ answers by measurement: three models served by Ollama, scored on 45 support-tick
 - Preparing the first live evaluation of Claude-generated answers in Production RAG:
   citation accuracy, declining unanswerable questions, and prompt-injection resistance.
 - Next up: multi-user isolation on PostgreSQL with pgvector.
-- Local AI Benchmark, Phase 4: proving offline operation, latency targets for interactive
-  use, and the cost per million tokens of local inference against a hosted API.
+- Local AI Benchmark, Phase 5: an offline support-ticket triage app on the recommended model,
+  then the v1.0.0 release.
 - Exploring: LLM observability and fine-tuning with LoRA and DPO.
