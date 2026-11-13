@@ -38,7 +38,8 @@ passages it used, and abstains when the documents don't contain the answer.
 
 Which small language model should run on a laptop with a 4 GB GPU? An offline benchmark that
 answers by measurement: three models served by Ollama, scored on 45 support-ticket tasks
-(classification, JSON extraction, summaries) and timed on the same machine and settings.
+(classification, JSON extraction, summaries) and timed on the same machine and settings; and
+an offline app that runs the winner.
 
 - **Result:** phi4-mini is the best tradeoff: quality 0.89, level with qwen3:4b-instruct, at
   34.6 tokens/s, 14% faster and with 23% less GPU energy per task. llama3.2:3b is the fastest
@@ -54,9 +55,12 @@ answers by measurement: three models served by Ollama, scored on 45 support-tick
   latency targets for interactive use (first token in 92 to 203 ms); GPU electricity costs
   INR 2 to 4 per million tokens against INR 19 to 31 for the same models hosted.
   [Tradeoffs](https://github.com/saicharan-nidiganti/local-ai-benchmark#tradeoffs-privacy-latency-and-cost).
-- **Engineering:** 201 offline tests at 97% coverage, `mypy --strict`, 7 required CI checks on
-  Python 3.11 to 3.14 and Windows, 11 architecture decision records, and a tagged
-  [v0.2.0 release](https://github.com/saicharan-nidiganti/local-ai-benchmark/releases/tag/v0.2.0).
+- **The app:** paste a support ticket, get its category, priority, order number, customer and
+  a summary from phi4-mini in about 3 s, as a command or a local web page that listens on
+  127.0.0.1 only, keeps nothing, and works with networking off.
+- **Engineering:** 224 offline tests at 97% coverage, `mypy --strict`, 7 required CI checks on
+  Python 3.11 to 3.14 and Windows, 12 architecture decision records, and a tagged
+  [v1.0.0 release](https://github.com/saicharan-nidiganti/local-ai-benchmark/releases/tag/v1.0.0).
 
 `Python` `Ollama` `Small language models` `Pydantic` `LLM evaluation` `Benchmarking` `uv` `GitHub Actions`
 
@@ -91,6 +95,4 @@ answers by measurement: three models served by Ollama, scored on 45 support-tick
 - Preparing the first live evaluation of Claude-generated answers in Production RAG:
   citation accuracy, declining unanswerable questions, and prompt-injection resistance.
 - Next up: multi-user isolation on PostgreSQL with pgvector.
-- Local AI Benchmark, Phase 5: an offline support-ticket triage app on the recommended model,
-  then the v1.0.0 release.
 - Exploring: LLM observability and fine-tuning with LoRA and DPO.
